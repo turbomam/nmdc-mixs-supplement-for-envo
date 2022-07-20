@@ -13,7 +13,7 @@
 <http://example.com/nmdc-mixs-supplement-for-envo>
     rdf:type     owl:Ontology ;
     owl:imports  <http://purl.obolibrary.org/obo/envo/releases/2021-05-14/envo.owl> ;
-    rdfs:seeAlso "" ;
+    rdfs:seeAlso "https://github.com/turbomam/nmdc-mixs-supplement-for-envo/blob/main/Makefile" ;
     rdfs:comment "base, MIxS and nmsfe prefixes need work", """what's the best well-known predicate for linking an EnvO term to a MIxS term?
 
 considered [has member](http://purl.obolibrary.org/obo/RO_0002351), but there are probably better alternatives to express _consider for_
