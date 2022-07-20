@@ -93,19 +93,19 @@ load_graph_from_remote_construct(g, "ubergraph_biome_label_construct.sparql")
 
 load_graph_from_remote_construct(g, "ubergraph_env_mat_SC_construct.sparql")
 
-with open("exhaustive_subclasses.sparql", "r") as f:
-    exhaustive_query = f.readlines()
-
-exhaustive_query = "".join(exhaustive_query)
-
-print(exhaustive_query)
-
-exhaustive_results = g.query(exhaustive_query)
-
-print(exhaustive_results)
-
-for row in exhaustive_results:
-    print("hello")
+# with open("exhaustive_subclasses.sparql", "r") as f:
+#     exhaustive_query = f.readlines()
+#
+# exhaustive_query = "".join(exhaustive_query)
+#
+# print(exhaustive_query)
+#
+# exhaustive_results = g.query(exhaustive_query)
+#
+# print(exhaustive_results)
+#
+# for row in exhaustive_results:
+#     print("hello")
 
 # print(g.serialize(format='turtle'))
 g.serialize(destination="target/nmdc-mixs-supplement-for-envo.ttl")

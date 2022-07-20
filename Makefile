@@ -2,7 +2,7 @@
 
 RUN=poetry run
 
-all: clean target/nmdc-mixs-supplement-for-envo.ttl
+all: clean target/nmdc-mixs-supplement-for-envo-merged-reduced-unmerged.ttl
 
 clean:
 	rm -rf target/*tsv
@@ -22,14 +22,21 @@ target/nmdc-mixs-supplement-for-envo.ttl: target/mixs_packages.tsv target/mixs_c
 	# todo add click CLI and class modeling?
 	$(RUN) python nmdc-mixs-supplement-for-envo/classes-by-grid-expansion.py
 
-target/nmdc-mixs-supplement-for-envo-merged.ttl: target/nmdc-mixs-supplement-for-envo.ttl
-	robot merge --input $< --collapse-import-closure true --output $@
+target/nmdc-mixs-supplement-for-envo-merged.ttl: target/nmdc-mixs-supplement-for-envo.ttl target/envo.owl
+	robot merge \
+		--input $< \
+		--input target/envo.owl \
+		--collapse-import-closure false \
+		--output $@
 
 target/nmdc-mixs-supplement-for-envo-merged-reduced.ttl: target/nmdc-mixs-supplement-for-envo-merged.ttl
 	# ELK or HermiT
-	robot reduce --input $< --reasoner ELK --very-verbose --output $@
+	robot reduce \
+		--input $< \
+		--reasoner ELK \
+		--very-verbose --output $@
 
-target/nmdc-mixs-supplement-for-envo-merged-reduced-unmerged.ttl: target/nmdc-mixs-supplement-for-envo-merged.ttl target/envo.owl
+target/nmdc-mixs-supplement-for-envo-merged-reduced-unmerged.ttl: target/nmdc-mixs-supplement-for-envo-merged-reduced.ttl target/envo.owl
 	robot unmerge --input $< \
 		--input target/envo.owl \
 		--output $@
