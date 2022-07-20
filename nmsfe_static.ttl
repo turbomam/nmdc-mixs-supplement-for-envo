@@ -1,0 +1,25 @@
+@prefix :      <http://example.com/nmsfe/> .
+@prefix IAO:   <http://purl.obolibrary.org/obo/IAO_> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix MIXS:  <http://www..example.com/mixs/> .
+@prefix envo:  <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nmsfe: <http://example.com/nmsfe/> .
+@base <http://example.com/nmdc-mixs-supplement-for-envo> .
+
+<http://example.com/nmdc-mixs-supplement-for-envo>
+    rdf:type     owl:Ontology ;
+    owl:imports  <http://purl.obolibrary.org/obo/envo/releases/2021-05-14/envo.owl> ;
+    rdfs:seeAlso "" ;
+    rdfs:comment "base, MIxS and nmsfe prefixes need work", """what's the best well-known predicate for linking an EnvO term to a MIxS term?
+
+considered [has member](http://purl.obolibrary.org/obo/RO_0002351), but there are probably better alternatives to express _consider for_
+
+usages of this term should be annotated!
+
+will NMDC colleagues be willing to use Protege or Web Protege?
+
+CJM suggested subCLassOf to aid in browsing""" .

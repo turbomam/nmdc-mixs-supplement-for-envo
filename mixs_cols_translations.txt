@@ -1,0 +1,23 @@
+MIxS	RDF	LinkML
+Example	http://purl.obolibrary.org/obo/IAO_0000112	
+Definition	http://purl.obolibrary.org/obo/IAO_0000115	
+Structured comment name	http://purl.obolibrary.org/obo/IAO_0000118	
+MIXS ID	http://purl.org/dc/elements/1.1/identifier	
+Item (rdfs:label)	http://www.w3.org/2000/01/rdf-schema#label	
+Expected value	http://example.org/nmsfe/expected_value	
+MIGS ID (mapping to GOLD)	http://example.org/nmsfe/gold_mapping	
+migs_ba	http://example.org/nmsfe/migs_ba_requirement_code	
+migs_eu	http://example.org/nmsfe/migs_eu_requirement_code	
+migs_org	http://example.org/nmsfe/migs_org_requirement_code	
+migs_pl	http://example.org/nmsfe/migs_pl_requirement_code	
+migs_vi	http://example.org/nmsfe/migs_vi_requirement_code	
+mimag	http://example.org/nmsfe/mimag_requirement_code	
+mimarks_c	http://example.org/nmsfe/mimarks_c_requirement_code	
+mimarks_s	http://example.org/nmsfe/mimarks_s_requirement_code	
+mims	http://example.org/nmsfe/mims_requirement_code	
+misag	http://example.org/nmsfe/misag_requirement_code	
+miuvig	http://example.org/nmsfe/miuvig_requirement_code	
+Occurence	http://example.org/nmsfe/occurence	
+Preferred unit	http://example.org/nmsfe/preferred_unit	
+Section	http://example.org/nmsfe/section	
+Value syntax	http://example.org/nmsfe/value_syntax	

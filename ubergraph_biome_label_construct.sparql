@@ -1,0 +1,24 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix envo: <http://purl.obolibrary.org/obo/ENVO_>
+construct {
+?s rdfs:subClassOf <http://example.org/nmsfe/env_broad_scale_proposed> .
+[ rdf:type owl:Axiom ;
+owl:annotatedSource ?s;
+owl:annotatedProperty rdfs:subClassOf ;
+owl:annotatedTarget <http://example.org/nmsfe/env_broad_scale_proposed> ;
+rdfs:seeAlso <http://example.org/nmsfe/biome-label-query> ;
+] .
+}
+WHERE
+{
+    SERVICE <https://ubergraph.apps.renci.org/sparql> {
+        ?s  rdfs:isDefinedBy  <http://purl.obolibrary.org/obo/envo.owl> ;
+        rdfs:label ?l .
+        minus {
+            ?s  rdfs:subClassOf   <http://purl.obolibrary.org/obo/ENVO_00000428> .
+        }
+        filter contains(?l,"biome")
+    }
+}
