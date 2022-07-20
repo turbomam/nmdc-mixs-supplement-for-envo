@@ -15,4 +15,7 @@ WHERE
 {
     SERVICE <https://ubergraph.apps.renci.org/sparql> {  ?s  rdfs:isDefinedBy  <http://purl.obolibrary.org/obo/envo.owl> ;
     rdfs:subClassOf   <http://purl.obolibrary.org/obo/ENVO_00000428> .}
+    minus {
+        ?s owl:deprecated ?d .
+    }
 }
