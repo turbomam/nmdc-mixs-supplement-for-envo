@@ -5,6 +5,7 @@ RUN=poetry run
 all: clean target/nmdc-mixs-supplement-for-envo-merged-reduced-unmerged.ttl
 
 clean:
+	rm -rf target/*owl
 	rm -rf target/*tsv
 	rm -rf target/*ttl
 	rm -rf target/*yaml

@@ -60,8 +60,29 @@ outer_dictionary = {'context': triad_slots,
 outer_expanded = expand_grid(outer_dictionary)
 
 for i in outer_expanded:
-    concatenated_name = "_".join(i)
-    g.add((nmsfe[concatenated_name], RDFS.subClassOf, nmsfe[i[0]]))
+    context = i[0]
+    context_status = "_".join(i)
+    context_statuses = f"{i[0]}_by_status"
+    print(f"{context_status} subclassof {i[0]}")
+    # env_broad_scale_proposed subclassof env_broad_scale DONE
+    # some repeated insertions?
+    g.add((nmsfe[context_statuses], RDFS.subClassOf, nmsfe[context]))
+    g.add((nmsfe[context_status], RDFS.subClassOf, nmsfe[context_statuses]))
+
+inner_dictionary = {'context': triad_slots,
+                    "environment": simplified_packages,
+                    'status': statuses}
+
+inner_expanded = expand_grid(inner_dictionary)
+
+for i in inner_expanded:
+    context_environment = f"{i[0]}_{i[1]}_by_status"
+    context_environments = f"{i[0]}_by_environment"
+    context_environment_status = f"{i[0]}_{i[1]}_{i[2]}"
+    context = i[0]
+    g.add((nmsfe[context_environments], RDFS.subClassOf, nmsfe[context]))
+    g.add((nmsfe[context_environment], RDFS.subClassOf, nmsfe[context_environments]))
+    g.add((nmsfe[context_environment_status], RDFS.subClassOf, nmsfe[context_environment]))
 
 
 def load_graph_from_remote_construct(graph: Graph, construct_file_path: str):
@@ -92,20 +113,6 @@ load_graph_from_remote_construct(g, "ubergraph_biome_SC_construct.sparql")
 load_graph_from_remote_construct(g, "ubergraph_biome_label_construct.sparql")
 
 load_graph_from_remote_construct(g, "ubergraph_env_mat_SC_construct.sparql")
-
-# with open("exhaustive_subclasses.sparql", "r") as f:
-#     exhaustive_query = f.readlines()
-#
-# exhaustive_query = "".join(exhaustive_query)
-#
-# print(exhaustive_query)
-#
-# exhaustive_results = g.query(exhaustive_query)
-#
-# print(exhaustive_results)
-#
-# for row in exhaustive_results:
-#     print("hello")
 
 # print(g.serialize(format='turtle'))
 g.serialize(destination="target/nmdc-mixs-supplement-for-envo.ttl")
